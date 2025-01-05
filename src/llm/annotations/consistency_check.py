@@ -54,17 +54,16 @@ if __name__ == '__main__':
     results = []
     for (english_answer, other_answer) in tqdm(zip(english_parsed_answers, other_parsed_answers),
                                                total=len(english_parsed_answers)):
-        other_answer['en_parsed_result'] = english_answer['en_parsed_result']
-        english_answer = json.loads(english_answer['en_parsed_result'])
-        other_answer  = json.loads(other_answer[f'{abb_lang}_parsed_result'])
-
+        english_parsed_answer = json.loads(english_answer['en_parsed_result'])
+        other_parsed_answer  = json.loads(other_answer[f'{abb_lang}_parsed_result'])
+        other_answer['en_parsed_result'] = english_parsed_answer
 
 
         for discourse_element_key, discourse_element_name in discourse_elements.items():
             _parsing_prompt = parsing_prompt.replace('<<LANGUAGE>>', second_language)
 
-            english_discourse_unit = english_answer.get(discourse_element_key, None)
-            other_discourse_unit = other_answer.get(discourse_element_key, None)
+            english_discourse_unit = english_parsed_answer.get(discourse_element_key, None)
+            other_discourse_unit = other_parsed_answer.get(discourse_element_key, None)
 
             if (english_discourse_unit is None) or (other_discourse_unit is None) or (len(english_discourse_unit)==0) or (len(other_discourse_unit)==0):
                 label = ''

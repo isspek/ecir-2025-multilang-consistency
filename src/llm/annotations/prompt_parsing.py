@@ -1,10 +1,10 @@
 import pandas as pd
 from argparse import ArgumentParser
 from tqdm import tqdm
-from code.llm.openai import OpenAIModel
+from src.llm.openai import OpenAIModel
 from typing import List
 from pydantic import BaseModel
-from code.llm.annotations.utils import lang_mapping
+from src.llm.annotations.utils import lang_mapping
 
 class DiscourseStructure(BaseModel):
     answer_summary: str
