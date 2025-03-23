@@ -93,7 +93,15 @@ bash scripts/consistency_check.sh
 ## References (Bib)
 [1] The citation information for our paper.
 ```bibtex
-TODO
+@misc{schlicht2025llmsprovideconsistentanswers,
+      title={Do LLMs Provide Consistent Answers to Health-Related Questions across Languages?}, 
+      author={Ipek Baris Schlicht and Zhixue Zhao and Burcu Sayin and Lucie Flek and Paolo Rosso},
+      year={2025},
+      eprint={2501.14719},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2501.14719}, 
+}
 ```
 
 [2] The citation information for the HealthFC Original Paper
